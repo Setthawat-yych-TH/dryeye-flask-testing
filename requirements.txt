@@ -9,7 +9,7 @@ cmake==3.22.3
 colorama==0.4.4
 crypto==1.4.1
 cryptography==36.0.2
-dataclasses==0.8
+dataclasses==0.6
 Deprecated==1.2.13
 dlib==19.23.1
 firebase==3.0.1
