@@ -11,7 +11,7 @@ from firebase import Firebase
 
 
 config = {
-  #"apiKey": "AIzaSyC23zle1HEwFlNQOi10E4QdTLtdiLkIsb0",
+  "apiKey": "AIzaSyC23zle1HEwFlNQOi10E4QdTLtdiLkIsb0",
   "authDomain": "dryeye-video-firebase.firebaseapp.com",
   "databaseURL": "https://dryeye-video-firebase-default-rtdb.asia-southeast1.firebasedatabase.app",
   "storageBucket": "dryeye-video-firebase.appspot.com",
@@ -51,10 +51,10 @@ def getFile(files):
 def downloadVideo():
     # if request.method == 'GET':
     #     if(request.headers.get('key')==secret_key):
-        firebase = Firebase(config)
-        storage = firebase.storage()
-        storage.child("video_mockup/test.mp4").download("download/mockup.mp4")
-        return 'video uploaded successfully'
+    firebase = Firebase(config)
+    storage = firebase.storage()
+    storage.child("video_mockup/test.mp4").download("download/mockup.mp4")
+    return 'video uploaded successfully'
     # else:
     #     return 'failed'
 
