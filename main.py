@@ -11,7 +11,7 @@ from firebase import Firebase
 
 
 config = {
-  "apiKey": "AIzaSyC23zle1HEwFlNQOi10E4QdTLtdiLkIsb0",
+  #"apiKey": "AIzaSyC23zle1HEwFlNQOi10E4QdTLtdiLkIsb0",
   "authDomain": "dryeye-video-firebase.firebaseapp.com",
   "databaseURL": "https://dryeye-video-firebase-default-rtdb.asia-southeast1.firebasedatabase.app",
   "storageBucket": "dryeye-video-firebase.appspot.com",
@@ -30,11 +30,11 @@ DOWNLOAD_FOLDER = os.path.join(APP_FOLDER,'upload')
 app.config['APP_FOLDER'] = APP_FOLDER
 app.config['DOWNLOAD_FOLDER'] = DOWNLOAD_FOLDER
 
-@app.route('/checkKey')
-def checkPath():
-    key = request.headers.get('key')
-    print(key)
-    return key
+# @app.route('/checkKey')
+# def checkPath():
+#     key = request.headers.get('key')
+#     print(key)
+#     return str(key)
 
 
 @app.route('/')
@@ -43,46 +43,45 @@ def hello():
 
 @app.route('/getFile-<files>')
 def getFile(files):
-    if request.headers.get('key') == secret_key:
-        return str(files) 
+    #if request.headers.get('key') == secret_key:
+    return str(files) 
 
 
-@app.route('/downloadVideo', methods = ['GET'])
+@app.route('/downloadVideo')
 def downloadVideo():
-    if request.method == 'GET':
-        if(request.headers.get('key')==secret_key):
-            firebase = Firebase(config)
-            storage = firebase.storage()
-            storage.child("video_mockup/test.mp4").download("download/mockup.mp4")
-            return 'video uploaded successfully'
-        else:
-            return 'failed'
+    # if request.method == 'GET':
+    #     if(request.headers.get('key')==secret_key):
+        firebase = Firebase(config)
+        storage = firebase.storage()
+        storage.child("video_mockup/test.mp4").download("download/mockup.mp4")
+        return 'video uploaded successfully'
+    # else:
+    #     return 'failed'
 
 
-@app.route('/uploader', methods = ['GET', 'POST'])
+@app.route('/uploader')
 def uploader():
-   if request.method == 'POST':
-      f = request.files['filename']
-      f.save(os.path.join (app.config['UPLOAD_FOLDER'],f.filename))
-      return 'file uploaded successfully'
+    f = request.files['filename']
+    f.save(os.path.join (app.config['UPLOAD_FOLDER'],f.filename))
+    return 'file uploaded successfully'
 
 
 @app.route('/valueEyeBlink')
 def valueEyeBlink():
-    if(request.headers.get('key')==secret_key):
-        json_dict = {}
-        value = eyeblink.eyeblink()
+    #if(request.headers.get('key')==secret_key):
+    json_dict = {}
+    value = eyeblink.eyeblink()
         #eyeblink.clearFolder()
-        return str(value)
+    return str(value)
 
 
 @app.route('/valueBlinkDuration')
 def valueBlinkDuration():
-    if(request.headers.get('key')==secret_key):
-        json_dict = {}
-        value = blinkduration.blinkduration()
+    #if(request.headers.get('key')==secret_key):
+    json_dict = {}
+    value = blinkduration.blinkduration()
         #eyeblink.clearFolder()
-        return str(value)
+    return str(value)
 
 
 
