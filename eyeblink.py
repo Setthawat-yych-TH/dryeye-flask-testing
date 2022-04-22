@@ -31,7 +31,7 @@ for fname in os.listdir(DOWNLOAD_FOLDER):
     # do stuff if a file .true doesn't exist.
 
 #second
-cap = cv2.VideoCapture('D:/Works/project_2/dryeye-flask-demo/download/mockup.mp4')
+cap = cv2.VideoCapture(os.path.join(DOWNLOAD_FOLDER,'mockup.mp4'))
 seconds = time.time() 
 detector = dlib.get_frontal_face_detector()
 predictor = dlib.shape_predictor('rsc/shape_predictor_68_face_landmarks.dat')
