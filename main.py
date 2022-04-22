@@ -72,8 +72,8 @@ def valueEyeBlink():
     json_dict = {}
     value = eyeblink.eyeblink()
         #eyeblink.clearFolder()
-    #return str(value)
-    return 'valueEyeBlink Processing'
+    return str(value)
+
 
 @app.route('/valueBlinkDuration')
 def valueBlinkDuration():
@@ -81,7 +81,7 @@ def valueBlinkDuration():
     json_dict = {}
     value = blinkduration.blinkduration()
         #eyeblink.clearFolder()
-    return 'valueBlinkDuration Processing'
+    return str(value)
 
 
 
