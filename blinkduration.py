@@ -71,7 +71,7 @@ def blinkduration ():
                     total+=1
 
         timer = math.floor(time.time()-seconds)
-        cv2.imshow('Video',img)
+        #cv2.imshow('Video',img)
         if cv2.waitKey(5) & 0xFF == ord('q') or total == 1:
 	        return timer
 
